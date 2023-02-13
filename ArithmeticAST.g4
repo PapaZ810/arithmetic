@@ -15,7 +15,7 @@ input
 expr
 returns [Node n]
     : NUMBER {
-        $n = new Number($n.text);
+        $n = new Number("$n.text");
     }
     | PI {
         $n = new Pi();

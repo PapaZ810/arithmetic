@@ -22,7 +22,7 @@ returns [double x]
         $x = Math.PI;
     }
     |<assoc=right> l=expr '^' r=expr {
-        $x = (int)$l.x ^ (int)$r.x;
+        $x = Math.pow($l.x, $r.x);
     }
     | op=('+' | '-') expr {
         if ($op.text.equals("-"))

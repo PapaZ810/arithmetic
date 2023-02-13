@@ -272,7 +272,7 @@ public class ArithmeticParser extends Parser {
 						setState(31);
 						((ExprContext)_localctx).r = ((ExprContext)_localctx).expr = expr(6);
 
-						                  ((ExprContext)_localctx).x =  (int)((ExprContext)_localctx).l.x ^ (int)((ExprContext)_localctx).r.x;
+						                  ((ExprContext)_localctx).x =  Math.pow(((ExprContext)_localctx).l.x, ((ExprContext)_localctx).r.x);
 						              
 						}
 						break;

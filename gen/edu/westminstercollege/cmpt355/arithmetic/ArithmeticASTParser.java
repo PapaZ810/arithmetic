@@ -178,7 +178,7 @@ public class ArithmeticASTParser extends Parser {
 				setState(9);
 				match(NUMBER);
 
-				        ((ExprContext)_localctx).n =  new Number(_localctx.n.text);
+				        ((ExprContext)_localctx).n =  new Number("_localctx.n.text");
 				    
 				}
 				break;
