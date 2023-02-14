@@ -137,6 +137,7 @@ public class ArithmeticASTParser extends Parser {
 	public static class ExprContext extends ParserRuleContext {
 		public Node n;
 		public ExprContext l;
+		public Token NUMBER;
 		public Token op;
 		public ExprContext expr;
 		public ExprContext r;
@@ -176,9 +177,9 @@ public class ArithmeticASTParser extends Parser {
 			case NUMBER:
 				{
 				setState(9);
-				match(NUMBER);
+				((ExprContext)_localctx).NUMBER = match(NUMBER);
 
-				        ((ExprContext)_localctx).n =  new Number("_localctx.n.text");
+				        ((ExprContext)_localctx).n =  new Number((((ExprContext)_localctx).NUMBER!=null?((ExprContext)_localctx).NUMBER.getText():null));
 				    
 				}
 				break;
@@ -208,7 +209,7 @@ public class ArithmeticASTParser extends Parser {
 				setState(14);
 				((ExprContext)_localctx).expr = expr(4);
 
-
+				        ((ExprContext)_localctx).n =  new Number(((ExprContext)_localctx).op + "" + (((ExprContext)_localctx).expr!=null?_input.getText(((ExprContext)_localctx).expr.start,((ExprContext)_localctx).expr.stop):null));
 				    
 				}
 				break;

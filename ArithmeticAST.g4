@@ -15,13 +15,13 @@ input
 expr
 returns [Node n]
     : NUMBER {
-        $n = new Number("$n.text");
+        $n = new Number($NUMBER.text);
     }
     | PI {
         $n = new Pi();
     }
     | op=('+' | '-') expr {
-
+        $n = new Number($op + "" + $expr.text);
     }
     | l=expr op=('*' | '/') r=expr {
         if ($op.text.equals("*"))
