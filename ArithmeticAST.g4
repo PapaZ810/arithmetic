@@ -20,8 +20,15 @@ returns [Node n]
     | PI {
         $n = new Pi();
     }
+    | l=expr '^' r=expr {
+        $n = new Exponent($l.n, $r.n);
+    }
     | op=('+' | '-') expr {
-        $n = new Number($op + "" + $expr.text);
+        if ($op.text.equals("-")) {
+            $n = new Negate($expr.n);
+        } else {
+            $n = $expr.n;
+        }
     }
     | l=expr op=('*' | '/') r=expr {
         if ($op.text.equals("*"))
@@ -34,6 +41,9 @@ returns [Node n]
             $n = new Add($l.n, $r.n);
         else
             $n = new Subtract($l.n, $r.n);
+    }
+    | 'sqrt(' expr ')' {
+        $n = new Sqrt($expr.n);
     }
     | '(' expr ')' {
         $n = $expr.n;

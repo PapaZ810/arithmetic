@@ -183,6 +183,7 @@ public class ArithmeticParser extends Parser {
 
 				        // When you name something from the grammar, put a $ in front of it.
 				        ((ExprContext)_localctx).x =  Double.parseDouble((((ExprContext)_localctx).NUMBER!=null?((ExprContext)_localctx).NUMBER.getText():null));
+				        System.out.print(_localctx.x + " ");
 				    
 				}
 				break;
@@ -212,10 +213,13 @@ public class ArithmeticParser extends Parser {
 				setState(14);
 				((ExprContext)_localctx).expr = expr(5);
 
-				        if ((((ExprContext)_localctx).op!=null?((ExprContext)_localctx).op.getText():null).equals("-"))
+				        if ((((ExprContext)_localctx).op!=null?((ExprContext)_localctx).op.getText():null).equals("-")) {
+				            System.out.print("neg ");
 				            ((ExprContext)_localctx).x =  -((ExprContext)_localctx).expr.x;
-				        else
+				        } else {
+				            System.out.print(((ExprContext)_localctx).expr.x);
 				            ((ExprContext)_localctx).x =  ((ExprContext)_localctx).expr.x;
+				        }
 				    
 				}
 				break;
@@ -228,6 +232,7 @@ public class ArithmeticParser extends Parser {
 				setState(19);
 				match(T__6);
 
+				        System.out.print("sqrt ");
 				        ((ExprContext)_localctx).x =  Math.sqrt(((ExprContext)_localctx).expr.x);
 				    
 				}
@@ -272,6 +277,7 @@ public class ArithmeticParser extends Parser {
 						setState(31);
 						((ExprContext)_localctx).r = ((ExprContext)_localctx).expr = expr(6);
 
+						                  System.out.print("^ ");
 						                  ((ExprContext)_localctx).x =  Math.pow(((ExprContext)_localctx).l.x, ((ExprContext)_localctx).r.x);
 						              
 						}
@@ -297,10 +303,13 @@ public class ArithmeticParser extends Parser {
 						setState(36);
 						((ExprContext)_localctx).r = ((ExprContext)_localctx).expr = expr(5);
 
-						                  if ((((ExprContext)_localctx).op!=null?((ExprContext)_localctx).op.getText():null).equals("*"))
-						                          ((ExprContext)_localctx).x =  ((ExprContext)_localctx).l.x * ((ExprContext)_localctx).r.x;
-						                      else
+						                  if ((((ExprContext)_localctx).op!=null?((ExprContext)_localctx).op.getText():null).equals("*")) {
+						                         System.out.print("* ");
+						                         ((ExprContext)_localctx).x =  ((ExprContext)_localctx).l.x * ((ExprContext)_localctx).r.x;
+						                  } else {
+						                          System.out.print("/ ");
 						                          ((ExprContext)_localctx).x =  ((ExprContext)_localctx).l.x / ((ExprContext)_localctx).r.x;
+						                  }
 						              
 						}
 						break;
@@ -325,10 +334,13 @@ public class ArithmeticParser extends Parser {
 						setState(41);
 						((ExprContext)_localctx).r = ((ExprContext)_localctx).expr = expr(4);
 
-						                  if ((((ExprContext)_localctx).op!=null?((ExprContext)_localctx).op.getText():null).equals("+"))
+						                  if ((((ExprContext)_localctx).op!=null?((ExprContext)_localctx).op.getText():null).equals("+")) {
+						                      System.out.print("+ ");
 						                      ((ExprContext)_localctx).x =  ((ExprContext)_localctx).l.x + ((ExprContext)_localctx).r.x;
-						                  else
+						                  } else {
+						                      System.out.print("- ");
 						                      ((ExprContext)_localctx).x =  ((ExprContext)_localctx).l.x - ((ExprContext)_localctx).r.x;
+						                  }
 						              
 						}
 						break;
